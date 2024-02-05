@@ -1,17 +1,15 @@
-import { useState } from 'react'
 import './App.css'
 import NameAndAddress from './components/NameAndAddress'
-import WorkExperience from './components/WorkExperience'
-import Education from './components/Education'
 
 function App() {
  
 
   return (
     <>
-      <NameAndAddress/>
-      <Education />
-      <WorkExperience />
+    <h3>Random CV Application</h3>
+      <NameAndAddress smallHeading={'Name and Address'}/>
+      <NameAndAddress smallHeading={'Education'}/>
+      <NameAndAddress smallHeading={'Work Experience'}/>
     </>
   )
 }

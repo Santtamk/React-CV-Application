@@ -1,39 +1,29 @@
-import { useState } from "react"
+import { useState } from "react";
+import "../styles/styles.css";
 
+const NameAndAddress = ({smallHeading}) => {
+  const [name, setName] = useState("");
+  const [save, setSave] = useState(false);
 
-const NameAndAddress = () => {
-  const [name, setName] = useState('')
-  const [save, setSave] = useState(false)
-  // const [edit, setEdit] = useState('')
+  const cvName = (e) => {
+    setName(e.target.value);
+  };
 
-  const cvName  = (e) => {
-    setName(e.target.value)
-  } 
+  const saveAndEdit = () => {
+    setSave(!save);
+  };
 
-  const editedText = () => { 
-    cvName(name)
-  }
-
-  const saveAndEdit = () => { 
-    // if save is clicked it has to disable the input field and show a div with the name 
-    if(setSave){
-      cvName()
-    }else {
-      editedText()
-    }
-    // if edit is clicked it has to show the input field . with the existing text . disable the edit button and show the save button as active 
-      
-  }
   return (
     <div>
-      <div>
-        {save ? <div>{name}</div> : <input type="text"  onChange={cvName} /> }
-        {!save ? <button onClick={saveAndEdit}>Save</button> : <button onClick={saveAndEdit}>Edit</button>}
-        <p>{name}</p>
+      <h5>{smallHeading}</h5>
+      <div className="nameAndAddress_subsection">
+        <div>
+          {save ? <textarea type="text" onChange={cvName} /> : <p>{name}</p>}
+        </div>
+        <button onClick={saveAndEdit}>{save ? "Submit" : "Edit"}</button>
       </div>
-      {/* <GeneralInfo /> */}
     </div>
-  )
-}
+  );
+};
 
-export default NameAndAddress
+export default NameAndAddress;
